@@ -34,14 +34,14 @@ $ npm install --save @nestjs/typeorm typeorm mysql2
 ```
 
 ## About technologies
-- NestJS
+- NestJS</br>
 NestJS is framework execute on NodeJS and server-side. It's for Application Web and API REST.</br>
 https://nestjs.com/
 
-- MySQL
+- MySQL</br>
 Open-source database and can be used to applications web</br>
 https://www.oracle.com/mysql/what-is-mysql/
 
-- TypeOrm 
+- TypeOrm</br>
 Run in NodeJs, helps create applications with database. Used in languages as JavaScript and TypeScript.</br>
 https://typeorm.io/
