@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { CreatePetDto } from './dto/create-pet.dto';
 import { Pet } from './entity/Pet';
 import { GenreType } from './types/pets-type.enum';
+import { User } from './entity/User';
 
 @Injectable()
 export class PetsService {
@@ -11,13 +12,14 @@ export class PetsService {
     private petRepository: Repository<Pet>) {}
 
   async createPets(createPetDto: CreatePetDto): Promise<Pet>{
-    const { name, breed, birthDate } = createPetDto
+    const { name, breed, birthDate, userId } = createPetDto
 
     const pet = new Pet();
     pet.name = name;
     pet.breed = breed;
     pet.birthDate = birthDate;
     pet.genre = GenreType.FEMALE;
+    pet.userId = userId;
 
     await pet.save();
     return pet;
@@ -36,11 +38,12 @@ export class PetsService {
     return allDataPets;
   }
 
-  async updatePet(id: number, name: string, breed: string, birthDate: Date): Promise<Pet> {
+  async updatePet(id: number, name: string, breed: string, birthDate: Date, userId: User): Promise<Pet> {
     const pet = await this.getPetById(id);
     pet.name = name;
     pet.breed = breed;
     pet.birthDate = birthDate;
+    pet.userId = userId
 
     await pet.save();
     return pet;

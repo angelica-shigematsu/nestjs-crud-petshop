@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { CreatePetDto } from './dto/create-pet.dto';
 import { PetsService } from './pets.service';
 import { Pet } from '../pets/entity/Pet'
+import { User } from './entity/User';
 
 @Controller('pets')
 export class PetsController {
@@ -27,9 +28,10 @@ export class PetsController {
     @Param('id') id: number,
     @Body('name') name: string,
     @Body('breed') breed: string,
-    @Body('birthDate') birthDate: Date
+    @Body('birthDate') birthDate: Date,
+    @Body('userId') users: User
   ): Promise<Pet> {
-    return this.petsService.updatePet(id, name, breed, birthDate);
+    return this.petsService.updatePet(id, name, breed, birthDate, users);
   }
 
   @Delete('/:id')

@@ -1,7 +1,6 @@
 import { GenreType } from "../types/pets-type.enum";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
-import { MIN } from "class-validator";
-
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { User } from "./User";
 
 @Entity()
 export class Pet extends BaseEntity {
@@ -19,4 +18,7 @@ export class Pet extends BaseEntity {
 
   @Column()
   genre: GenreType;
+
+  @ManyToOne(() => User, user => user.pets)
+  userId: User;
 }
