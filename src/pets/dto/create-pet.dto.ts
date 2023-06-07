@@ -1,6 +1,7 @@
 import { IsNotEmpty, IsNumber, IsUUID } from 'class-validator';
 import { Length } from 'class-validator';
 import { User } from '../entity/User';
+import { GenreType } from '../types/pets-type.enum';
 
 export class CreatePetDto {
   @IsUUID()
@@ -16,6 +17,9 @@ export class CreatePetDto {
 
   @IsNotEmpty()
   birthDate: Date;
+
+  @IsNotEmpty()
+  genre: GenreType;
   
   @IsNumber()
   userId: User;

@@ -3,6 +3,7 @@ import { CreatePetDto } from './dto/create-pet.dto';
 import { PetsService } from './pets.service';
 import { Pet } from '../pets/entity/Pet'
 import { User } from './entity/User';
+import { UpdatePetDto } from './dto/update-pet.dto';
 
 @Controller('pets')
 export class PetsController {
@@ -26,12 +27,9 @@ export class PetsController {
   @Patch('/:id')
   updatePet(
     @Param('id') id: number,
-    @Body('name') name: string,
-    @Body('breed') breed: string,
-    @Body('birthDate') birthDate: Date,
-    @Body('userId') users: User
+    @Body() updatePetDto: UpdatePetDto
   ): Promise<Pet> {
-    return this.petsService.updatePet(id, name, breed, birthDate, users);
+    return this.petsService.updatePet(id, updatePetDto);
   }
 
   @Delete('/:id')

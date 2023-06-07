@@ -1,10 +1,7 @@
-import { IsNotEmpty, IsNumber, IsUUID, Length, Matches } from "class-validator";
+import { IsNotEmpty, IsNumber, Length, Matches } from "class-validator";
 import { Pet } from "../entity/Pet";
 
-export class CreateUserDto {
-  @IsUUID()
-  id: number;
-
+export class UpdateUserDto {
   @IsNotEmpty()
   @Length(5, 30)
   name: string;

@@ -10,6 +10,9 @@ export class User extends BaseEntity {
   name: string;
 
   @Column()
+  cpf: string;
+
+  @Column()
   address: string;
 
   @Column()
