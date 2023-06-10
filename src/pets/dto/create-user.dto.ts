@@ -1,10 +1,6 @@
-import { IsNotEmpty, IsNumber, IsUUID, Length, Matches } from "class-validator";
-import { Pet } from "../entity/Pet";
+import { IsNotEmpty, IsNumber, Length, Matches } from "class-validator";
 
 export class CreateUserDto {
-  @IsUUID()
-  id: number;
-
   @IsNotEmpty()
   @Length(5, 30)
   name: string;
@@ -27,12 +23,9 @@ export class CreateUserDto {
   state: string;
 
   @IsNotEmpty()
-  @Length(11)
+  @Matches(/^[0-9]{11}$/)
   phone: string;
 
   @IsNotEmpty()
   email: string;
-
-  @IsNumber()
-  pets: Pet;
 }

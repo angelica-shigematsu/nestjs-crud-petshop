@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Patch, Post, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from 'src/pets/dto/create-user.dto';
-import { User } from 'src/pets/entity/User';
-import { UpdateUserDto } from 'src/pets/dto/update-user.dto';
+import { CreateUserDto } from '../pets/dto/create-user.dto';
+import { User } from '../pets/entity/User';
+import { UpdateUserDto } from '../pets/dto/update-user.dto';
 
 @Controller('users')
 export class UsersController {

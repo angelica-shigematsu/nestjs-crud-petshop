@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Pet } from '../pets/entity/Pet'
-import { User } from 'src/pets/entity/User';
+import { User } from '../pets/entity/User';
 
 export const typeOrmConfig: TypeOrmModuleOptions =  {
   type: 'mysql',
